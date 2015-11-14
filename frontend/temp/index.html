@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="">
+<html ng-app="app">
 <head>
   <title>My index</title>
   <!-- inject:css -->
@@ -7,8 +7,12 @@
 </head>
 <body>
 Hi
-  <!-- inject:js -->
+  <!-- vendorInject:js -->
   <script src="vendor/angular.js"></script>
+  <!-- endinject -->
+
+  <!-- inject:js -->
+  <script src="app.js"></script>
   <!-- endinject -->
 </body>
 </html>

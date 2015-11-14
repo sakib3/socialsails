@@ -14,11 +14,14 @@ gulp.task('scripts',function(){
 
 	//acces the index.html  in app dir  and copy to tmp dir
 	var tempIndex = gulp.src(paths.index).pipe(gulp.dest(paths.temp));
+	//acces all js files and folders  in app dir  and copy to tmp dir
+	var scripts = gulp.src('app/**/*.js').pipe(gulp.dest(paths.temp));
 	//copy main files from bower components
 	var temVendors = gulp.src(mainBowerfiles()).pipe(gulp.dest(paths.tempVendor));
 
 	tempIndex
-			.pipe(inject(temVendors,{relative: true}))
+			.pipe(inject(scripts,{relative: true}))
+			.pipe(inject(temVendors,{relative: true, name:'vendorInject'}))
 			.pipe(gulp.dest(paths.temp));
 });
 
@@ -27,7 +30,7 @@ gulp.task('serve', function(){
 	gulp.src(paths.temp)
 	.pipe(webserver({
 		//open the directory and show the list
-		open:true
+		//open:true
 		//directoryListing: true
 	}));
 });
