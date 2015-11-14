@@ -1,5 +1,5 @@
-angular.module("app").controller("Login",function($scope){
+angular.module("app").controller("Login",function($scope,$auth){
 	$scope.login = function(){
-		console.log("Login Clicked");
+		$auth.authenticate('twitter');
 	}
 })
