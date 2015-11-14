@@ -96,6 +96,8 @@
 			          	//var user = new User();
 			          	//user.twitter = profile.id;
 			          	//user.displayName = profile.name;
+			          	
+			          	//converted for waterline in backend
 			          	var user = User.create({
 			          		twitter : profile.id,
 			          		displayName : profile.name

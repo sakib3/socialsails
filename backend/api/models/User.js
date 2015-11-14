@@ -6,7 +6,8 @@
 */
 
 module.exports = {
-
+ 
+//schema type 'string' instead of String is chnaged to make it functional for waterline in backend
   attributes: {
   	email: { 
   		type: 'string', 
