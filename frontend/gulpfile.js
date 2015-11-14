@@ -5,9 +5,11 @@ var inject = require('gulp-inject');
 var paths ={
 	temp: 'temp',
 	tempVendor: 'temp/vendor',
-	index: 'app/index.html'
+	index: 'app/index.html',
+	app : 'app/**/*.js',
+	bower: 'bower_components'
 };
-gulp.task('default',['scripts','serve']);
+gulp.task('default',['scripts','serve','watch']);
 
 
 gulp.task('scripts',function(){
@@ -15,7 +17,7 @@ gulp.task('scripts',function(){
 	//acces the index.html  in app dir  and copy to tmp dir
 	var tempIndex = gulp.src(paths.index).pipe(gulp.dest(paths.temp));
 	//acces all js files and folders  in app dir  and copy to tmp dir
-	var scripts = gulp.src('app/**/*.js').pipe(gulp.dest(paths.temp));
+	var scripts = gulp.src(paths.app).pipe(gulp.dest(paths.temp));
 	//copy main files from bower components
 	var temVendors = gulp.src(mainBowerfiles()).pipe(gulp.dest(paths.tempVendor));
 
@@ -25,6 +27,10 @@ gulp.task('scripts',function(){
 			.pipe(gulp.dest(paths.temp));
 });
 
+gulp.task('watch',function(){
+	gulp.watch(paths.app, ['scripts']);
+	gulp.watch(paths.bower, ['scripts']);
+});
 gulp.task('serve', function(){
 	//serve the index.html file
 	gulp.src(paths.temp)
@@ -32,5 +38,6 @@ gulp.task('serve', function(){
 		//open the directory and show the list
 		//open:true
 		//directoryListing: true
+		livereload:true
 	}));
 });
