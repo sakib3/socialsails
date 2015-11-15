@@ -12,7 +12,7 @@
 <nav class="navbar navbar-default">
 </nav>
 <div class="container">
-	<button class="btn btn-primary" ng-click="login()">Login</button>
+	<button ng-hide="isAuthenticated()" class="btn btn-primary" ng-click="login()">Login</button>
 	<button class="btn btn-success"ng-click="tweet()">Tweet</button>	
 </div>
   <!-- vendorInject:js -->
