@@ -78,14 +78,26 @@
 		        				return res.status(400).send({ message: 'User not found' });
 		        			}
 
-		        			user.twitter = profile.id;
-		        			user.displayName = user.displayName || profile.name;
+		        			//user.twitter = profile.id;
+		        			//user.displayName = user.displayName || profile.name;
 		        			//user.picture = user.picture || profile.profile_image_url.replace('_normal', '');
-		        			user.twitterToken = accessToken.oauth_token;
-							user.twitterSecret = accessToken.oauth_token_secret;
-		        			user.save(function(err) {
-		        				res.send({ token: createJWT(user) });
-		        			});
+		        			//user.twitterToken = accessToken.oauth_token;
+							//user.twitterSecret = accessToken.oauth_token_secret;
+		        			// user.save(function(err) {
+		        			// 	res.send({ token: createJWT(user) });
+		        			// });
+		        			
+
+		        			var user = User.create({
+			          		twitter : profile.id,
+			          		displayName : user.displayName || profile.name,
+			          		twitterToken: accessToken.oauth_token,
+							twitterSecret: accessToken.oauth_token_secret
+				          	}).exec(function(err,user){
+				          		res.send({ token: createJWT(user) });
+				          	})
+
+
 		        		});
 		        	});
 		        } else {
