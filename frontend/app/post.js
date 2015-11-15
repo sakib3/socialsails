@@ -1,4 +1,4 @@
-angular.module("app").controller("Scheduler",function($scope,$auth,$http){
+angular.module("app").controller("Post",function($scope,$auth,$http){
 	
 	
 	
