@@ -13,6 +13,7 @@ angular.module("app").controller("Login",function($scope,$auth,$http){
 	}
 
 	$scope.minDate = new Date();
+	$scope.time = new Date();
 	$scope.opened = false;
 	$scope.open = function($event){
 		$event.preventDefault();
