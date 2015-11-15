@@ -47,7 +47,7 @@ angular.module("app").controller("Post",function($scope,$http,$location){
 	
 	function editPost() {
 		var datetime = new Date($scope.date.getFullYear(), $scope.date.getMonth(), $scope.date.getDate(), $scope.time.getHours(), $scope.time.getMinutes());
-
+		//waterline function by default ..update/
 		$http.post('/api/post/update/' + id, {
 			message: $scope.message,
 			datetime: datetime

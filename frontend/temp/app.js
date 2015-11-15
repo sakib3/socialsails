@@ -10,7 +10,7 @@ angular.module('app',['satellizer','ui.bootstrap','ui.router'])
 		templateUrl: 'myposts.html',
 		controller: 'MyPosts'
 	}).state('post',{
-		url: '/post',
+		url: '/post?id',
 		templateUrl: 'post.html',
 		controller: 'Post'
 	})
