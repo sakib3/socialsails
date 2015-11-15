@@ -10,6 +10,7 @@
 </head>
 <body ng-controller="Login">
 <nav class="navbar navbar-default">
+  <button ng-show="isAuthenticated()" class="btn btn-link navbar-btn pull-right" ng-click="logout()">Logout</button>
 </nav>
 <div class="container">
 	<button ng-hide="isAuthenticated()" class="btn btn-primary" ng-click="login()">Login</button>

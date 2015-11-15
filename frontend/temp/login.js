@@ -8,4 +8,7 @@ angular.module("app").controller("Login",function($scope,$auth,$http){
 
 		});
 	}
+	$scope.logout = function () {
+		$auth.logout();
+	}
 })
