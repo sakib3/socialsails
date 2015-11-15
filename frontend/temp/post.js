@@ -9,6 +9,8 @@ angular.module("app").controller("Post",function($scope,$http,$location,toastr){
 	
 	$scope.opened = false;
 	
+	$scope.delete = deletePost;
+	
 	$scope.open = function($event){
 		$event.preventDefault();
 		$event.stopPropagation();
@@ -57,6 +59,13 @@ angular.module("app").controller("Post",function($scope,$http,$location,toastr){
 		});
 	}
 
+	function deletePost() {
+		var datetime = new Date($scope.date.getFullYear(), $scope.date.getMonth(), $scope.date.getDate(), $scope.time.getHours(), $scope.time.getMinutes());
+		//waterline function by default ..delete/
+		$http.post('/api/post/destroy/' + id).then(function(){
+			toastr.error("Post Deleted!");
+		});
+	}
 	
 	function isEditingPost(){
 		return id;
