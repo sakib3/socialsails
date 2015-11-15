@@ -16,7 +16,7 @@
 <div class="container">
   	<button ng-hide="isAuthenticated()" class="btn btn-primary" ng-click="login()">Login</button>
     <div class="col-sm-8 col-md-6 col-md-offset-3 col-sm-offset-2">
-        <div class="well clearfix">
+        <div ng-controller="Scheduler" class="well clearfix">
           <div class="form-group">
               <textarea rows=4 placeholder="Tweet Message" ng-model="message" class="form-control"></textarea> 
           </div>
@@ -27,7 +27,7 @@
             </span>
           </p>
           <timepicker ng-model="time"></timepicker>
-        	<button class="btn btn-success pull-right"ng-click="tweet()">Tweet</button>	
+        	<button ng-disabled="!date" class="btn btn-success pull-right"ng-click="tweet()">Tweet</button>	
         </div>
     </div>
 </div>
@@ -40,6 +40,7 @@
   <!-- inject:js -->
   <script src="app.js"></script>
   <script src="login.js"></script>
+  <script src="scheduler.js"></script>
   <!-- endinject -->
 </body>
 </html>
