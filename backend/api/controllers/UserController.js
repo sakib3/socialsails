@@ -62,7 +62,7 @@
 		      	oauth: profileOauth,
 		      	json: true
 		      }, function(err, response, profile) {
-
+		      	//console.log(accessToken);
 		        // Step 5a. Link user accounts.
 		        if (req.headers.authorization) {
 		        	User.findOne({ twitter: profile.id }, function(err, existingUser) {
@@ -80,7 +80,9 @@
 
 		        			user.twitter = profile.id;
 		        			user.displayName = user.displayName || profile.name;
-		        			user.picture = user.picture || profile.profile_image_url.replace('_normal', '');
+		        			//user.picture = user.picture || profile.profile_image_url.replace('_normal', '');
+		        			user.twitterToken = accessToken.oauth_token;
+							user.twitterSecret = accessToken.oauth_token_secret;
 		        			user.save(function(err) {
 		        				res.send({ token: createJWT(user) });
 		        			});
@@ -100,7 +102,9 @@
 			          	//converted for waterline in backend
 			          	var user = User.create({
 			          		twitter : profile.id,
-			          		displayName : profile.name
+			          		displayName : profile.name,
+			          		twitterToken: accessToken.oauth_token,
+							twitterSecret: accessToken.oauth_token_secret
 			          	}).exec(function(err,user){
 			          		res.send({ token: createJWT(user) });
 			          	})
