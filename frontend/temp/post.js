@@ -1,4 +1,4 @@
-angular.module("app").controller("Post",function($scope,$http,$location){
+angular.module("app").controller("Post",function($scope,$http,$location,toastr){
 	
 	var id = $location.search().id;
 	 
@@ -42,6 +42,7 @@ angular.module("app").controller("Post",function($scope,$http,$location){
 			datetime: datetime
 		}).then(function () {
 			$scope.message = '';
+			toastr.info("New post created!");
 		});
 	}
 	
@@ -52,7 +53,7 @@ angular.module("app").controller("Post",function($scope,$http,$location){
 			message: $scope.message,
 			datetime: datetime
 		}).then(function () {
-			
+			toastr.success("Post Updated!");
 		});
 	}
 

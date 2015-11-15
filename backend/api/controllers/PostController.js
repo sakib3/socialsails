@@ -18,6 +18,7 @@ module.exports = {
 				owner: req.userId
 			}).exec(function(err,post){
 				console.log("working",post,err);
+				res.send(200).end();
 			})
 /*			var T = new Twit({
 			    consumer_key:         config.TWITTER_KEY, 

@@ -3,6 +3,7 @@
 <head>
   <title>My index</title>
   <!-- vendorInject:css -->
+  <link rel="stylesheet" href="vendor/angular-toastr.css">
   <!-- endinject -->
   <!-- inject:css -->
   <link rel="stylesheet" href="bootstrap.css">
@@ -12,8 +13,8 @@
 <body ng-controller="Login">
 <nav class="navbar navbar-default">
 <div class="container">
-  <button class="btn btn-alert navbar-btn" ui-sref="posts">My Posts</button>
-  <button class="btn btn-warning navbar-btn" ui-sref="post">New Post</button>
+  <button class="btn btn-info navbar-btn" ui-sref="posts">My Posts</button>
+  <button class="btn btn-primary navbar-btn" ui-sref="post">New Post</button>
 
   <button ng-show="isAuthenticated()" class="btn btn-link navbar-btn pull-right" ng-click="logout()">Logout</button>
   
@@ -34,6 +35,8 @@
   <script src="vendor/satellizer.js"></script>
   <script src="vendor/ui-bootstrap-tpls.js"></script>
   <script src="vendor/angular-ui-router.js"></script>
+  <script src="vendor/angular-toastr.tpls.js"></script>
+  <script src="vendor/angular-animate.js"></script>
   <!-- endinject -->
 
   <!-- inject:js -->
