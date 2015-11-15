@@ -12,13 +12,20 @@
   <button ng-show="isAuthenticated()" class="btn btn-link navbar-btn pull-right" ng-click="logout()">Logout</button>
 </nav>
 <div class="container">
-	<button ng-hide="isAuthenticated()" class="btn btn-primary" ng-click="login()">Login</button>
-  <div class="well">
-  <div class="form-group">
-   <input placeholder="Tweet Message" ng-model="message" class="form-control"> 
-  </div>
-	 <button class="btn btn-success"ng-click="tweet()">Tweet</button>	
-  </div>
+  	<button ng-hide="isAuthenticated()" class="btn btn-primary" ng-click="login()">Login</button>
+
+    <div class="well">
+      <div class="form-group">
+          <input placeholder="Tweet Message" ng-model="message" class="form-control"> 
+      </div>
+      <p class="input-group">
+        <input class="form-control" datepicker-popup ng-model="date" is-open="opened" min-date="minDate">
+        <span class="input-group-btn">
+          <button class="btn btn-default" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
+        </span>
+      </p>
+    	<button class="btn btn-success"ng-click="tweet()">Tweet</button>	
+    </div>
 </div>
   <!-- vendorInject:js -->
   <!-- endinject -->
