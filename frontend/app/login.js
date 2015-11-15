@@ -4,8 +4,8 @@ angular.module("app").controller("Login",function($scope,$auth,$http){
 	}
 	$scope.isAuthenticated = $auth.isAuthenticated;
 	$scope.tweet = function(){
-		$http.post('/api/post/tweet','').then(function(){
-
+		$http.post('/api/post/tweet',{message: $scope.message}).then(function(){
+			$scope.message = '';
 		});
 	}
 	$scope.logout = function () {
