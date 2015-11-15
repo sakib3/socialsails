@@ -11,8 +11,14 @@ module.exports = {
 	tweet: function(req,res){
 		User.findOne(req.userId,function(err,user){
 			var message = req.body.message;
-			//var message = 'hello world! :D';
-			var T = new Twit({
+			var datetime = req.body.datetime;
+			Post.create({
+				message: message,
+				datetime: datetime
+			}).exec(function(err,post){
+				console.log("working",post,err);
+			})
+/*			var T = new Twit({
 			    consumer_key:         config.TWITTER_KEY, 
 			    consumer_secret:      config.TWITTER_SECRET, 
 			    access_token:         user.twitterToken, 
@@ -23,7 +29,7 @@ module.exports = {
 					}, function(err, data, response) {
 			  			console.log(data,err);
 			  			res.status(200).end();
-			});
+			});*/
 			
 		})
 	}
