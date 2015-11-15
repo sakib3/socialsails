@@ -29,6 +29,7 @@
           <timepicker ng-model="time"></timepicker>
         	<button ng-disabled="!date" class="btn btn-success pull-right"ng-click="tweet()">Tweet</button>	
         </div>
+        <div ng-include="'myposts.html'"></div>
     </div>
 </div>
   <!-- vendorInject:js -->
@@ -40,6 +41,7 @@
   <!-- inject:js -->
   <script src="app.js"></script>
   <script src="login.js"></script>
+  <script src="myposts.js"></script>
   <script src="scheduler.js"></script>
   <!-- endinject -->
 </body>

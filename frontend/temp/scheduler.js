@@ -31,7 +31,5 @@ angular.module("app").controller("Scheduler",function($scope,$auth,$http){
 		$event.stopPropagation();
 		$scope.opened = !$scope.opened;
 	}
-	$http.post('/api/post/myPosts').then(function(posts){
-		console.log(posts);
-	})
+	
 })
