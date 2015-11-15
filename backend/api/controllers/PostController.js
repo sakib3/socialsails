@@ -14,7 +14,8 @@ module.exports = {
 			var datetime = req.body.datetime;
 			Post.create({
 				message: message,
-				datetime: datetime
+				datetime: datetime,
+				owner: req.userId
 			}).exec(function(err,post){
 				console.log("working",post,err);
 			})
