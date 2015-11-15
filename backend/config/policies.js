@@ -35,7 +35,8 @@ module.exports.policies = {
 
    PostController: {
       tweet: ['jwtAuth'],
-      myPosts: ['jwtAuth']
+      myPosts: ['jwtAuth'],
+      findOne: ['jwtAuth']
    }
 
   /***************************************************************************
