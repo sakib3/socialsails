@@ -15,6 +15,7 @@ module.exports = {
 			Post.create({
 				message: message,
 				scheduledfor: datetime,
+				isPosted: false,
 				owner: req.userId
 			}).exec(function(err,post){
 				console.log("working",post,err);
