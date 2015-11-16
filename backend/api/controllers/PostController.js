@@ -5,7 +5,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-var Twit = require('twit');
+
 module.exports = {
 	// make an endpoins
 	tweet: function(req,res){
