@@ -21,7 +21,7 @@ angular.module("app").controller("Post",function($scope,$http,$location,toastr){
 			$scope.message = post.data.message;
 			//$scope.date = post.data.datetime;
 			
-			var datetime = new Date(post.data.datetime);
+			var datetime = new Date(post.data.scheduledfor);
 			$scope.date = datetime;
 			$scope.time = datetime;
 		});
@@ -41,7 +41,7 @@ angular.module("app").controller("Post",function($scope,$http,$location,toastr){
 
 		$http.post('/api/post/tweet', {
 			message: $scope.message,
-			datetime: datetime
+			scheduledfor: datetime
 		}).then(function () {
 			$scope.message = '';
 			toastr.info("New post created!");
@@ -53,7 +53,7 @@ angular.module("app").controller("Post",function($scope,$http,$location,toastr){
 		//waterline function by default ..update/
 		$http.post('/api/post/update/' + id, {
 			message: $scope.message,
-			datetime: datetime
+			scheduledfor: datetime
 		}).then(function () {
 			toastr.success("Post Updated!");
 		});

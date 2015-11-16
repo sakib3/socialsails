@@ -11,10 +11,10 @@ module.exports = {
 	tweet: function(req,res){
 		User.findOne(req.userId,function(err,user){
 			var message = req.body.message;
-			var datetime = req.body.datetime;
+			var datetime = req.body.scheduledfor;
 			Post.create({
 				message: message,
-				datetime: datetime,
+				scheduledfor: datetime,
 				owner: req.userId
 			}).exec(function(err,post){
 				console.log("working",post,err);
