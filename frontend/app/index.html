@@ -10,8 +10,8 @@
 <body ng-controller="Login">
 <nav class="navbar navbar-default">
 <div class="container">
-  <button class="btn btn-primary navbar-btn" ui-sref="post">New Post</button>
-  <button class="btn btn-link navbar-btn" ui-sref="posts">My Posts</button>
+  <button ng-show="isAuthenticated()" class="btn btn-primary navbar-btn" ui-sref="post">New Post</button>
+  <button ng-show="isAuthenticated()" class="btn btn-link navbar-btn" ui-sref="posts">My Posts</button>
 
   <button ng-show="isAuthenticated()" class="btn btn-link navbar-btn pull-right" ng-click="logout()">Logout</button>
   
@@ -19,12 +19,17 @@
 </nav>
 <div class="container">
     
-        <div class="form-group">
-          <button ng-hide="isAuthenticated()" class="btn btn-primary" ng-click="login()">Login</button> 
+        <div class="col-sm-8 col-md-6 col-md-offset-3 col-sm-offset-2">
+          <div ng-hide="isAuthenticated()" class="jumbotron">
+            <img height="200" width="200" src="http://www.wired.com/images_blogs/business/2011/01/twitter-logo.png" class="img-responsive" alt="">
+            <h1>Make a Post!</h1>
+            <p>It's easy...</p>
+            <button class="btn btn-primary btn-lg" ng-click="login()">Login</button> 
+          </div>
         </div>
   	   
         
-        <div ui-view></div>
+        <div ng-show="isAuthenticated()" ui-view></div>
     
 </div>
   <!-- vendorInject:js -->
