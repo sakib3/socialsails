@@ -12,6 +12,7 @@
     "request": "^2.65.0",
     "sails": "~0.11.2",
     "sails-disk": "~0.10.0",
+    "sails-mysql": "^0.11.2",
     "twit": "^2.1.1"
   },
   "scripts": {

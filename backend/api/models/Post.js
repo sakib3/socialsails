@@ -6,7 +6,7 @@
 */
 
 module.exports = {
-
+connection:'someMysqlServer',
   attributes: {
   	message: 'string',
   	scheduledfor: 'datetime',
