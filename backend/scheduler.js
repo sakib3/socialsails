@@ -16,7 +16,7 @@ function checkPosts(){
 	})
 	.populate('owner')
 	.exec(function(err,posts){
-		
+		console.log(posts);
 		posts.forEach(function(post){
 			sendTweet(post.owner.twitterToken,post.owner.twitterSecret,post.message,function(){
 				updateSentPost(post);
